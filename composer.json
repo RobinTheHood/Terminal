@@ -1,0 +1,24 @@
+{
+    "name": "robinthehood/terminal",
+    "type": "library",
+    "description": "With Terminal you can easily output colored text on the console with php.",
+    "keywords": ["color", "terminal", "escape sequences"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robin Wieschendorf",
+            "email": "mail@robinwieschendorf.de",
+            "homepage": "http://robinwieschendorf.de",
+            "role": "Project Founder"
+        }
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "another-vendor/package": "1.*"
+    },
+    "autoload": {
+        "psr-4" : {
+            "RobinTheHood\\" : "/"
+        }
+    },
+}
