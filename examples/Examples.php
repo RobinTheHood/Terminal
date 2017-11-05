@@ -6,7 +6,7 @@ Run this file on the console with:
 
 require_once '../Terminal.php';
 
-use RobinTheHood\Terminal;
+use Terminal\Terminal;
 
 /* Example 1 */
 $terminal = new Terminal();
