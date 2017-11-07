@@ -22,8 +22,10 @@ class Terminal
     const WHITE = 97;
 
     private $color;
-    private $line = 0;
     private $lineNumbersEnabled = false;
+
+    private $currentLineNumber = 0;
+    private $nextLineNumber = 1;
 
     public function setColor($color)
     {
@@ -40,26 +42,25 @@ class Terminal
     {
         $length = strlen($string);
 
-        if ($this->line == 0) {
-            $this->line++;
-            $this->printLineNumber();
-        }
-
         for($i = 0; $i<$length; $i++) {
+            if ($this->currentLineNumber != $this->nextLineNumber) {
+                $this->printLineNumber();
+            }
+
             $chr = substr($string, $i, 1);
             echo $chr;
 
-            if ($chr == "\n" && $i < $length-1) {
-                $this->line++;
-                $this->printLineNumber();
+            if ($chr == "\n") {
+                $this->nextLineNumber++;
             }
         }
     }
 
-    public function printLineNumber()
+    private function printLineNumber()
     {
+        $this->currentLineNumber = $this->nextLineNumber;
         if ($this->lineNumbersEnabled) {
-            echo chr(self::ESC) . '[' . self::BLACK . 'm' . $this->line . ' ';
+            echo chr(self::ESC) . '[' . self::BLACK . 'm' . $this->currentLineNumber . ' ';
             echo chr(self::ESC) . '[' . $this->color . 'm';
         }
     }
