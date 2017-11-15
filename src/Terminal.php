@@ -27,6 +27,25 @@ class Terminal
     private $currentLineNumber = 0;
     private $nextLineNumber = 1;
 
+
+    public function __call($functionName, $args)
+    {
+        if ($functionName === 'outln') {
+            $this->outlnNonStatic($args[0], $args[1]);
+        } else if ($functionName === 'out') {
+            $this->outNonStatic($args[0], $args[1]);
+        }
+    }
+
+    public static function __callStatic($functionName, $args)
+    {
+        if ($functionName === 'outln') {
+            self::outlnStatic($args[0], $args[1]);
+        } else if ($functionName === 'out') {
+            self::outStatic($args[0], $args[1]);
+        }
+    }
+
     public function setColor($color)
     {
         $this->color = $color;
@@ -38,7 +57,28 @@ class Terminal
         $this->lineNumbersEnabled = $value;
     }
 
-    public function out($string)
+
+
+    public static function outlnStatic($string, $color = Terminal::WHITE)
+    {
+        self::outStatic($string . "\n", $color);
+    }
+
+    public static function outStatic($string, $color = Terminal::WHITE)
+    {
+        $terminal = new Terminal();
+        $terminal->setColor($color);
+        $terminal->outNonStatic($string);
+    }
+
+
+
+    public function outlnNonStatic($string)
+    {
+        $this->out($string . "\n");
+    }
+
+    public function outNonStatic($string)
     {
         $length = strlen($string);
 
