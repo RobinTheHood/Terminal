@@ -1,5 +1,5 @@
 <?php
-namespace Terminal;
+namespace RobinTheHood\Terminal;
 
 class Terminal
 {

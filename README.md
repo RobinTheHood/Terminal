@@ -23,7 +23,7 @@ composer require robinthehood/terminal
 ```php
 require 'vendor/autoload.php'; // if you are using Composer
 
-use Terminal\Terminal;
+use RobinTheHood\Terminal\Terminal;
 
 $terminal = new Terminal();
 $terminal->setColor(Terminal::RED);
@@ -66,7 +66,7 @@ Terminal::LIGHT_CYAN
 ```php
 require 'vendor/autoload.php'; // if you are using Composer
 
-use Terminal\Terminal;
+use RobinTheHood\Terminal\Terminal;
 
 $terminal = new Terminal();
 $terminal->setColor(Terminal::RED);
@@ -91,7 +91,7 @@ Terminal can also display line numbers:
 ```php
 require 'vendor/autoload.php'; // if you are using Composer
 
-use Terminal\Terminal;
+use RobinTheHood\Terminal\Terminal;
 
 $terminal = new Terminal();
 $terminal->setColor(Terminal::RED);
