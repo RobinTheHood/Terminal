@@ -49,7 +49,8 @@ Terminal::GREEN
 Terminal::YELLOW  
 Terminal::BLUE  
 Terminal::MAGENTA  
-Terminal::CYAN   
+Terminal::CYAN
+Terminal::ORANGE
 Terminal::LIGHT_GRAY  
 Terminal::DARK_GRAY  
 Terminal::LIGHT_RED  

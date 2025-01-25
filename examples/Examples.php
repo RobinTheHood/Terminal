@@ -1,4 +1,5 @@
 <?php
+
 /*
 Run this file on the console with:
 > php Examples.php

@@ -1,25 +1,27 @@
 <?php
+
 namespace RobinTheHood\Terminal;
 
 class Terminal
 {
-    const ESC = 0x1b;
-    const BLACK = 30;
-    const RED = 31;
-    const GREEN = 32;
-    const YELLOW = 33;
-    const BLUE = 34;
-    const MAGENTA = 35;
-    const CYAN = 36;
-    const LIGHT_GRAY = 37;
-    const DARK_GRAY = 90;
-    const LIGHT_RED = 91;
-    const LIGHT_GREEN = 92;
-    const LIGHT_YELLOW = 93;
-    const LIGHT_BLUE = 94;
-    const LIGHT_MAGENTA = 95;
-    const LIGHT_CYAN = 96;
-    const WHITE = 97;
+    public const ESC = 0x1b;
+    public const BLACK = 30;
+    public const RED = 31;
+    public const GREEN = 32;
+    public const YELLOW = 33;
+    public const BLUE = 34;
+    public const MAGENTA = 35;
+    public const CYAN = 36;
+    public const ORANGE = 202;
+    public const LIGHT_GRAY = 37;
+    public const DARK_GRAY = 90;
+    public const LIGHT_RED = 91;
+    public const LIGHT_GREEN = 92;
+    public const LIGHT_YELLOW = 93;
+    public const LIGHT_BLUE = 94;
+    public const LIGHT_MAGENTA = 95;
+    public const LIGHT_CYAN = 96;
+    public const WHITE = 97;
 
     private $color;
     private $lineNumbersEnabled = false;
@@ -32,7 +34,7 @@ class Terminal
     {
         if ($functionName === 'outln') {
             $this->outlnNonStatic($args[0], $args[1]);
-        } else if ($functionName === 'out') {
+        } elseif ($functionName === 'out') {
             $this->outNonStatic($args[0], $args[1]);
         }
     }
@@ -41,7 +43,7 @@ class Terminal
     {
         if ($functionName === 'outln') {
             self::outlnStatic($args[0], $args[1]);
-        } else if ($functionName === 'out') {
+        } elseif ($functionName === 'out') {
             self::outStatic($args[0], $args[1]);
         }
     }
@@ -82,7 +84,7 @@ class Terminal
     {
         $length = strlen($string);
 
-        for($i = 0; $i<$length; $i++) {
+        for ($i = 0; $i < $length; $i++) {
             if ($this->currentLineNumber != $this->nextLineNumber) {
                 $this->printLineNumber();
             }
